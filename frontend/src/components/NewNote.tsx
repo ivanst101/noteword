@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikHelpers } from "formik";
-import { newNoteSchema } from "./validation/newNote";
+import { newNoteSchema } from "./validation/newNoteValidation";
+import { Link } from "react-router";
 
 interface FormValues {
   title: string;
@@ -10,9 +11,11 @@ interface FormValues {
 export default function NewNote() {
   return (
     <div className="max-w-6xl mx-auto p-5">
-      <button className="bg-[var(--silver-lake-blue-color)] text-[var(--rich-black-color)] px-4 py-2 rounded-xl">
-        Back to Notes
-      </button>
+      <Link to={"/"}>
+        <button className="bg-[var(--silver-lake-blue-color)] text-[var(--rich-black-color)] px-4 py-2 rounded-xl float-right">
+          Back to Notes
+        </button>
+      </Link>
       <div className="mx-auto py-8 flex-col">
         <h3 className="text-2xl underline underline-offset-4 mb-5">
           Create new Note

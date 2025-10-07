@@ -24,7 +24,7 @@ export default function Note({ note, setNotes }: NoteProps) {
     <>
       <h2 className="text-2xl mb-2">{note.name}</h2>
       <p className="mb-2">{note.subtitle}</p>
-      <p>
+      <section>
         <small>{note.date}</small>
         <div className="flex justify-end gap-3">
           <button className="bg-[var(--silver-lake-blue-color)] text-[var(--rich-black-color)] px-4 py-2 rounded-xl">
@@ -37,7 +37,7 @@ export default function Note({ note, setNotes }: NoteProps) {
             Delete
           </button>
         </div>
-      </p>
+      </section>
     </>
   );
 }
