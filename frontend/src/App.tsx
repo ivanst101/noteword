@@ -1,13 +1,14 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Notes from "./components/Notes";
+import HomePage from "./pages/HomePage";
+import NewNote from "./components/NewNote";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Notes />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/create" element={<NewNote />} />
+    </Routes>
   );
 }
 
