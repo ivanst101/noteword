@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikHelpers } from "formik";
+import toast from "react-hot-toast";
 import { newNoteSchema } from "./validation/newNoteValidation";
 import { Link, useNavigate } from "react-router";
 import { useNotes } from "../context/NoteContext";
@@ -54,6 +55,7 @@ export default function NewNote() {
 
               setSubmitting(false);
               resetForm();
+              toast.success("New note created successfully!");
               navigate("/");
             }, 500);
           }}
