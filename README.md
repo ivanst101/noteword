@@ -5,14 +5,21 @@ The app demonstrates state management with Context API, form handling with Formi
 
 ---
 
-Features
+Features:
 
 ✅ Add new notes through a Formik form
+
 ✅ View all created notes on the home page
+
 ✅ Delete individual notes
+
 ✅ Centralized global state using Context API
+
 ✅ Fully typed with TypeScript
+
 ✅ Validation with Yup
+
 ✅ Routing between pages (Home, NewNote) using React Router
+
 
 ---
