@@ -1,16 +1,10 @@
-type NoteType = {
-  id: number;
-  name: string;
-  subtitle: string;
-  date: string;
-};
-
+import { useNotes, type NoteType } from "../context/NoteContext";
 type NoteProps = {
   note: NoteType;
-  setNotes: React.Dispatch<React.SetStateAction<NoteType[] | null>>;
 };
 
-export default function Note({ note, setNotes }: NoteProps) {
+export default function Note({ note }: NoteProps) {
+  const { setNotes } = useNotes();
   function handleDelete(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: number

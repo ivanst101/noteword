@@ -1,7 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import type { FormikHelpers } from "formik";
 import { newNoteSchema } from "./validation/newNoteValidation";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useNotes } from "../context/NoteContext";
 
 interface FormValues {
   title: string;
@@ -9,6 +10,9 @@ interface FormValues {
 }
 
 export default function NewNote() {
+  const { setNotes } = useNotes();
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-6xl mx-auto p-5">
       <Link to={"/"}>
@@ -31,9 +35,26 @@ export default function NewNote() {
             { setSubmitting, resetForm }: FormikHelpers<FormValues>
           ) => {
             setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
+              setNotes((prevNotes) => {
+                if (!prevNotes) return null;
+
+                const newNote = {
+                  id: prevNotes.length + 1,
+                  name: values.title,
+                  subtitle: values.content,
+                  date: new Date().toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  }),
+                };
+
+                return [...prevNotes, newNote];
+              });
+
               setSubmitting(false);
               resetForm();
+              navigate("/");
             }, 500);
           }}
         >
